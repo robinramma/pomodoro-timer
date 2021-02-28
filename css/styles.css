@@ -1,0 +1,167 @@
+/*
+ * cpBootcamp: Pomodoro Timer
+ * Robin Littlefield 
+ *
+ * styles.css:
+ * v1.0 2/25/21
+ */
+ 
+:root {
+    --orange: #F87070;
+    --green: #70F3F8;
+    --perpule: #D881F8;
+    --light-blue: #D7E0FF;
+    --dark-blue: #1E213F;
+    --darker-blue:#161932;
+    --white: #FFFFFF;
+    --beige: #EFF1FA;
+    --appBackgroundColor: var(--dark-blue);
+    --appTitle: var(--light-blue);
+    --navBackgroundColor: var(--darker-blue);
+    --navSelectedBackgroundColor: var(--orange);
+    --navSelectedTextColor: var(--dark-blue);
+    --navTextColor: var(--light-blue);
+    --ringColor: var(--orange); 
+    --innerCircleColor: var(--darker-blue);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Kumbh Sans", sans-serif;
+    color: var(--light-blue);
+}
+body {
+    background-color: var(--appBackgroundColor);
+}
+h1 {
+    font-weight: bold;
+    font-size: 100px;
+    letter-spacing: -5px;
+    line-height: 120px;
+}
+h2 {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 34px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+h3 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+}
+h4 {
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+nav {
+    /* position: absolute; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    width: 373px;
+    height: 63px;
+    border-radius: 31.5px;
+    background-color: var(--navBackgroundColor);
+    margin-bottom: 100px;
+    z-index: 0;
+}
+nav > button {
+    background: none;
+    border: none;
+    width: 120px;
+    height: 48px;
+    color: var(--navTextColor); /* XX move, must change */
+    z-index: 10;
+}
+nav > button:hover {
+    background-color: var(--navBackgroundColor);
+    color: var(--navTextColor);
+    border-radius: 26.5px;
+    border: none;
+}
+nav > button:focus { 
+    outline: 0;
+}
+nav > button:target {
+    color: var(--navSelectedTextColor);
+    background-color: var(--navSelectedBackgroundColor); 
+}
+/* -----------  SECTIONS ----------------*/
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#timer {
+    margin-top: 45px; 
+    margin-bottom: 63px; 
+    height: 63px;
+}
+#outercircle {
+    display: flex;
+    height: 410px;
+    width: 410px;
+    border-radius: 50%;
+    background: linear-gradient(315deg,#2E325A 0%, #0E112A 100%);
+    box-shadow: -50px -50px 100px #272C5A, 50px 50px 100px #121530;
+}
+#innercircle {
+    display: flex;
+    margin: auto;
+    height: 366px;
+    width: 366px;
+    border-radius: 50%;
+    background-color: var(--innerCircleColor);
+}
+#ring {
+    margin: auto;
+    width: 339px;
+    height: 339px;
+}
+#ring > circle { /* the child */
+    fill: transparent;
+    stroke: var(--ringColor);
+    stroke-width: 10;
+    stroke-dasharray: 1024, 1024;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+#textcontainer {    /* stuff in the middle */
+    position: absolute;
+    height: 410px;
+    width: 410px;
+}
+
+#time {
+    text-align: center;
+    margin-top: 160px;
+}
+
+#action {
+    text-align: center;
+}
+
+#settings {
+    margin-top: 300px;
+    width: 373px;
+    height: 63px;
+    text-align: center;
+}
+
+/* ---- Utility classes ------*/
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}

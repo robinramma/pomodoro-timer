@@ -23,19 +23,14 @@
     --navSelectedTextColor: var(--dark-blue);
     --navTextColor: var(--light-blue);
     --ringColor: var(--orange); 
-    /*
     --innerCircleColor: var(--darker-blue);
-    */
-    --innerCircleColor: var(--green);
-
     --formBackgroundColor: var(--white);
-    --fontKumbh: "Kumbh Sans", sans-serif;
 }
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: var(--fontKumbh);
+    font-family: "Kumbh Sans", sans-serif;
     color: var(--light-blue);
 }
 body {
@@ -106,8 +101,7 @@ hr {
     flex-direction: column;
     width: 100%;
 }
-
-#bgindicator {      /* highlight box over nav selection */
+#bgindicator {
     border-radius: 50px;
     height: 48px;
     width: calc(95% / 3); /* not 100% so it doesn't stick to right */
@@ -168,67 +162,12 @@ hr {
 #action {
     text-align: center;
 }
-/*LEM wrote  #settings is margin-top: 100px XXX why?*/
-#settings {  /* settings gear icon */
-       margin-top: 400px;
-}
 
-#settingscontainer {
-    visibility: hidden;
-    opacity: 0;
-    z-index: 100;
-    position: absolute;
-    width: 100%;
-    height: 100vw;
-    transition: ease-in 0.2s, linear .5s
-}
-#formrouter {
-    position: absolute;
-    z-index: 110;
-    display: flex;
-    width: 100%;
-    height: 100vh;
-}
-#settingsheader {
-    display: flex;
-    justify-content: space-between;
-    padding: 34px 40px;
-}
-#settingsheader > h2 {
-    margin: 0;
-    color: var(--darker-blue);
-}
-#settingsheader > button { /* close button, XX move to a class?? */
-    border: none;
-    outline: none;
-    background-color: var(--formBackgroundColor);
-}
-
-#settingstime {
-    margin: 0 20px 0 40px;
-}
-#settingstime > h4 {
-    display: flex;
-    padding: 25px 0; 
-    color: var(--darker-blue);
-}
-#settingsNavBoxes {
-    margin: 0 20px 0 40px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-}
-
-#settingsApplyButton {
-   /* XX add - ALIGN TO BOTTOM of FORM, and move a bit up */
-    margin-top: 150px;
-    display: flex;
-    justify-content: center;
-    z-index: 200;
-}
-#settingsApplyButton > button {
-    color: var(--white);
-    background-color: var(--orange);
+#settings {
+    margin-top: 300px;
+    width: 373px;
+    height: 63px;
+    text-align: center;
 }
 
 /* ---- Utility classes ------*/
@@ -253,55 +192,4 @@ hr {
 .pointer {
     user-select: none;
     cursor: pointer;
-}
-.input {
-    display: flex;
-    flex-direction: column;
-    width: 140px;
-    margin-right: 20px; /* to add padding in the future */
-}
-.input > label {
-    color: var(--darker-blue);
-    padding-bottom: 10px;
-    opacity: 40%; 
-}
-.input input {  /* number in the box ... */
-    height: 48px;
-    width: 80px;
-    background-color: var(--beige);
-    border: none; /* because it comes with the default */
-    outline: none;
-    color: var(--darker-blue);
-}
-
-.input input::-webkit-inner-spin-button,
-.input input::-webkit-outer-spin-button {
-    -webkit-appearance:none;
-    margin: 0;
-}
-.inputnumber { /* box w/ number & arrows */
-    display: flex;
-    background-color: var(--beige);
-    justify-content: space-between; 
-    padding: 0 15px; /* XX rl added where should it be? */
-    border-radius: 10px;
-    align-items: center;
-}
-.inputbuttons {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--beige);
-}
-.inputbuttons button { /* modify button itself */
-      /* in the design, when you hover they turn dk blue */
-    background-color: var(--beige);
-    border: none;
-    outline: none;
-    }
-.inputbuttons button img {
-    opacity: 25%;
-    transition: opacity .2s ease-out;
-}
-.inputbuttons button img:hover {
-    opacity: 1%;
 }

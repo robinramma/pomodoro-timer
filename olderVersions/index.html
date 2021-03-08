@@ -1,0 +1,62 @@
+<!--
+* cpBootcamp: Pomodoro Timer 
+* Robin Littlefield
+*
+* index.hmtl:
+* v1.0 2/27/21
+* v2.0 2/28/21
+*/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>cpBOOTCAMP Pomodoro Timer app</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <title> pomodoro</title>
+</head>
+<body>
+    <div id="wrapper" class="center">
+    <h2 id="title" class="center">pomodoro</h2>
+        <!-- NAVIGATION bar -->
+        <nav class="center">
+            <ul class="body1">
+                <li class="pointer active">pomodoro</li>
+                <li class="pointer">short break</li>
+                <li class="pointer">long break</li>
+            </ul>
+            <div id="bgindicator"></div>
+        </nav>
+    <!-- TIMER section -->
+    <section id="timer" class="center">
+        <div id="outercircle">
+            <div id="innercircle">
+                <svg id="ring">
+                    <circle r="163" cx="50%" cy="50%"></circle>
+                    <!--  nate / hassan code ... put text in svg itself.
+                    <text x="50%" y="50%" id="countdown" dominant-baseline="middle" text-anchor="middle">17:59</text>
+                    <text x="50%" y="75%" id="pause" dominant-baseline="middle" text-anchor="middle">PAUSE</text>
+                    -->
+                </svg>
+            </div>
+            <div id="textcontainer">
+                <h1 id="time">00:00</h1>
+                <h3 id="action" onclick="action(this.innerText)"></h3>
+            </div>
+        </div>
+    </section>>
+    <!-- SETTINGS box section -->
+    <section id="settings" class="center">
+        <div id="settingsContainer">
+            <h2 id="settingsHeader">Settings</h2>
+        </div>
+    </section>
+
+    </div>  <!-- end #wrapper -->
+<script src="js/index.js"></script>
+</body>
+</html>

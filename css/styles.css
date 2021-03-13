@@ -30,6 +30,8 @@
 
     --formBackgroundColor: var(--white);
     --fontKumbh: "Kumbh Sans", sans-serif;
+    --fontRoboto: "Roboto Slab", serif;
+    --fontSpaceMono: "Space Mono", monospace;
 }
 * {
     padding: 0;

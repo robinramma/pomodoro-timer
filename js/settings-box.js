@@ -12,10 +12,13 @@
         // this.color
     }
 
-    changeFont() {
-        console.log("settingsBox: changeFont(): ")
-    }
+   
     changeColor() {
         console.log("settingsBox: changeColor(): ")
     }
  }
+
+function changeFont(newfont) {
+    console.log("settingsBox: changeFont() to: ", newfont);
+    document.body.style.fontFamily = newfont;
+}

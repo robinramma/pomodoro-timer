@@ -13,8 +13,11 @@ class Timer {
         this.circle = document.querySelector("#ring > circle");
         this.clock = document.getElementById('time');
         this.actionElement = document.getElementById('action');
-        this.timer = 25; 
+        this.timer = document.getElementById('pomodoro').value;
         this.text = this.timer <= 9 ? '0' + this.timer : this.timer;
+        this.timer_pomodoro_set = document.getElementById('pomodoro').value;
+        this.timer_short_set = document.getElementById('short-break').value;
+        this.timer_long_set = document.getElementById('long-break').value;
     }
 
     select() {
@@ -27,23 +30,36 @@ class Timer {
     }
 
     reset(navType = 'pomodoro') {
+        console.log("RESET RESET RESET");
+
         this.stop();
         switch ( navType) {
             case 'short-break':
-                this.timer = 5;
+                // this.timer = this.timer_short_set;
+                this.timer =document.getElementById('short-break').value;
                 break;
             case 'long-break':
-                this.timer = 15;
+                // this.timer = this.timer_long_set;
+                this.timer = document.getElementById('long-break').value;
                 break;
             default:
-                this.timer = 25;
+                // this.timer = this.timer_pomodoro_set;
+                this.timer = document.getElementById('pomodoro').value;
                 break;
         }
         this.text = this.timer <= 9 ? "0" + this.timer : this.timer;
         this.actionElement.innerText = "start";
         this.clock.innerText = this.text + ":00";
         this.circle.style.strokeDashoffset = 1024; /* hardcoded */
+        /* DEBUG */
+        console.log("reset() pomodoro: ", this.timer_pomodoro_set);
+        console.log("reset() long-break: ", this.timer_long_set);
+        console.log("reset() short-break: ", this.timer_short_set);
+        console.log(parseInt(document.getElementById('pomodoro').value));
+        console.log(parseInt(document.getElementById('short-break').value));
+        console.log(parseInt(document.getElementById('long-break').value));
     }
+
     start() {
         function format(timeFormat) {
                 return timeFormat < 10 ? '0' + timeFormat : timeFormat;
@@ -78,7 +94,9 @@ class Timer {
         }, 1000);
         this.actionElement.innerText = "stop"; //XX add pause option
     }
+
     stop() {
+        console.log("STOP(): ");
         clearInterval(this.interval); // this stops it completely, 
         // reset the action, XX add a PAUSE option, so it can continue.
         this.actionElement.innerText = "start";
@@ -135,7 +153,6 @@ for (const i in navLinks) { // foreach of the 3 nav buttons.
 document.querySelector("#settings > img").addEventListener('click', ev => {
     settingscontainer.style.visibility = 'visible';
     settingscontainer.style.opacity = 1;
-    console.log("pressed GEAR for settings");
 });
 
 // click on input ARROW buttons
@@ -143,16 +160,19 @@ document.querySelectorAll(".uparrow, .downarrow").forEach(arrow => {
     arrow.addEventListener('click', (ev) => ev.preventDefault());
 });
 
-document.querySelectorAll("#close, #settings-overlay").forEach(el => 
-    el.addEventListener('click', () => {
+document.querySelector("#close").addEventListener('click', ev => {
         settingscontainer.style.opacity = 0;
-        settingscontainer.style.visiblity = 'hidden';
-    })
-);
+        settingscontainer.style.visibility = 'hidden';
+});
 
 document.querySelector("#settingsApplyButton > button").addEventListener('click', ev => {
-    console.log("APPLY BUTTON IS HIT");
-    // set the time for pomodoro, short break and long break
+    console.log("clicked APPLY BUTTON");
+    ev.preventDefault();
+    console.log(document.getElementById('pomodoro').value);
+    console.log(document.getElementById('short-break').value);
+    console.log(document.getElementById('long-break').value);
+
+    countdowntimer.reset('pomodoro');
 });
 
 /**
@@ -165,3 +185,8 @@ document.querySelector("#settingsApplyButton > button").addEventListener('click'
 
 const inc = (input) => document.getElementById(input).stepUp(1);
 const dec = (input) => document.getElementById(input).stepDown(1);
+
+function changeFont(newfont) {
+    console.log("settingsBox: changeFont() to: ", newfont);
+    document.body.style.fontFamily = "Roboto Slab, serif";
+}
